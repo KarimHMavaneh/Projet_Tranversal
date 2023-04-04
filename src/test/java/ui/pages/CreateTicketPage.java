@@ -74,7 +74,7 @@ public class CreateTicketPage extends GlpiPageObject {
     }
 
     public void clickValidator() {
-//        driver.click(By.xpath("/html/body/span/span/span[2]/ul/li[9]"));
+
         driver.click(By.xpath("/html/body/div[2]/div/div/main/div/div/div[2]/div/div/div/div/form/div[1]/div[2]/div/div[1]/div/div/div[9]/div/span[2]/div/span/span[1]/span/span[1]/span"));
         //find the input and send keys
 
