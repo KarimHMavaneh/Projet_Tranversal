@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3b871b30-5b7c-4290-a977-32505fd996f3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ui/TestGlpiUi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ui/TestGlpiUi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ui/pages/CreateTicketPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ui/pages/CreateTicketPage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +50,29 @@
       <recent name="" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="TestGlpiUi.testCreateTicket" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Projet_Tranversal_ApiTest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ui" />
+      <option name="MAIN_CLASS_NAME" value="ui.TestGlpiUi" />
+      <option name="METHOD_NAME" value="testCreateTicket" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.TestGlpiUi.testCreateTicket" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -56,7 +81,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1680607230676</updated>
-      <workItem from="1680607232249" duration="10283000" />
+      <workItem from="1680607232249" duration="11457000" />
     </task>
     <servers />
   </component>

@@ -110,7 +110,7 @@ public class TestGlpiUi {
         page.findValidator();
         Thread.sleep(3000);
         page.clickValidator();
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         page.finalClick();
         Thread.sleep(3000);
         page.ticketTitleNDescription(title, desc);
