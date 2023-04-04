@@ -25,13 +25,22 @@ public class TicketsPage extends GlpiPageObject {
 
 
     public TicketsPage ticketResponse(String response){
-        driver.click(By.cssSelector("button.btn.btn-primary.answer-action.mb-2"));
+//        driver.click(By.cssSelector("button.btn.btn-primary.answer-action.mb-2"));
         // Change the selenium driver's focus to the iframe
         WebDriver iframe  = driver.getDriver().switchTo().frame(driver.getDriver().findElement(By.cssSelector(".tox-edit-area__iframe")));
         iframe.findElement(By.id("tinymce")).sendKeys(response);
         // don't forget to change the focus from iframe to the default content
         driver.getDriver().switchTo().defaultContent();
+
+
         return this;
+    }
+    public void approveIt(){
+        driver.click(By.cssSelector("button.btn.btn-outline-green"));
+    }
+    public void refuseIt(){
+        driver.click(By.cssSelector("button.btn.btn-outline-red"));
+
     }
     public TicketsPage switchToIframe(){
          //We need to perform mouse hover action to enable the elements inside the card body
