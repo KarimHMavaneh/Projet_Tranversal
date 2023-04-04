@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="GlpiApiJavaCallHtmlUnitMvn" />
+        <module name="Projet_Tranversal_ApiTest" />
       </profile>
     </annotationProcessing>
   </component>
