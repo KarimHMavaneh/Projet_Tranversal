@@ -108,11 +108,11 @@ public class TestGlpiUi {
         page.selectValidationDemand();
         Thread.sleep(3000);
         page.findValidator();
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         page.clickValidator();
-        Thread.sleep(2000);
-        page.finalClick();
         Thread.sleep(3000);
+        page.finalClick();
+        Thread.sleep(5000);
         page.ticketTitleNDescription(title, desc);
         Thread.sleep(3000);
         //get the inner text of the webelements
