@@ -102,17 +102,17 @@ public class TestGlpiUi {
         page.specifyDate("2023-04-03 12:00:00");
         Thread.sleep(2000);
         page.specifyDemandeType();
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         page.findNScroll();
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         page.selectValidationDemand();
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         page.findValidator();
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         page.clickValidator();
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         page.finalClick();
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         page.ticketTitleNDescription(title, desc);
         Thread.sleep(3000);
         //get the inner text of the webelements
