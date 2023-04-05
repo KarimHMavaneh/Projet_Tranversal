@@ -48,7 +48,7 @@ public class TestGlpiUi {
 
     @After
     public void tearDown() throws InterruptedException {
-        Thread.sleep(3000);
+//         Thread.sleep(3000);
         Optional.ofNullable(page).map(GlpiPageObject::close);
 
     }
