@@ -25,8 +25,8 @@ public class TestGlpiApi {
     public static void setUpClass() throws IOException {
         GlpiApiCall glpiApiCall = new GlpiApiCall();
         urlApi = "http://localhost/glpi_10_0_6/apirest.php/";
-        appToken = "Sqj5ZWtdgwEtPOq81qYU6JmIiPpIb3WwhhgVIasK";
-        userToken = "WBVngFYj3IqozWlkXYrgmygoelopRG9ZCScuvzGP"; // MANAGER_RH
+        appToken = "AvoR4OcYdMaWnl7zg7S03JOsWU1fQeflrGr7gzJI";
+        userToken = "1mfjDeexv6kY4VQNzXo4TTGzbsigYMgwwU9yaa83"; // MANAGER_RH
         // Obtention du Token de Session
         sessionToken = glpiApiCall.getSessionToken(urlApi, appToken, userToken);
         // Initialisation de la liste des tickets avant création

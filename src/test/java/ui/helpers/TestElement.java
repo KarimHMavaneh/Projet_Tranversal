@@ -29,12 +29,3 @@ public class TestElement {
         return null;
     }
 }
-
-//test -Dtest=$TESTLINK_TESTCASE_JAVA_CLASS
-//clean
-//        javadoc:javadoc
-//        javadoc:test-javadoc
-//        jacoco:prepare-agent
-//        install
-//        jacoco:report
-//        site

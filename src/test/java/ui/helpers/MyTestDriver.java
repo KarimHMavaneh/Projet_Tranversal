@@ -21,7 +21,7 @@ public class MyTestDriver implements TestDriver {
     public TestElement findElement(By by) {
         WebElement webElt = this.driver.findElement(by);
         scrollToElement(webElt);
-        System.out.println("Element found");
+//        System.out.println("Element found");
         var elt = new TestElement(webElt);
         try {
             Thread.sleep(0);

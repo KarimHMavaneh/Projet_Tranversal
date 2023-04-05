@@ -29,11 +29,11 @@ public class GlpiApiCall {
         GlpiApiCall glpiApiCall = new GlpiApiCall();
 
         String urlApi = "http://localhost/glpi_10_0_6/apirest.php/";
-        String appToken = "Sqj5ZWtdgwEtPOq81qYU6JmIiPpIb3WwhhgVIasK";
+        String appToken = "AvoR4OcYdMaWnl7zg7S03JOsWU1fQeflrGr7gzJI";
         // UserToken SUPER ADMIN :
         //String userToken = "WBVngFYj3IqozWlkXYrgmygoelopRG9ZCScuvzGP";
         // UserToken MANAGER_RH :
-        String userToken = "LlScEGrJpIbr6kaExqODoYhaEh25nPjvqbJ1QtAD";
+        String userToken = "1mfjDeexv6kY4VQNzXo4TTGzbsigYMgwwU9yaa83";
         // UserToken MANAGER_EQUIPE
         //String userTokenME = "yc3CkDqFSSELb6IVRy5DrdMHUbFsZqJrFQgvCam5";
 
