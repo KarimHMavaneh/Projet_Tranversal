@@ -90,7 +90,7 @@ public class TestGlpiUi {
 //        );
 //    }
 //
-    @Test
+//    @Test
 //    public void testCreateTicket() throws InterruptedException {
 //        this.page = new LoginPage(this.driver).login(LoginPage.TEST_Manager_RH, LoginPage.TEST_PASSWORD_Manager_RH);
 //        CreateTicketPage page= new CreateTicketPage(this.driver).createATicket();
