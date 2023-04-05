@@ -1,122 +1,87 @@
-// package api;
+package api;
 
-// import org.junit.*;
-// import static junit.framework.TestCase.*;
-// import static org.junit.Assert.assertNotEquals;
-// import com.gargoylesoftware.htmlunit.*;
+import org.junit.*;
+import static junit.framework.TestCase.*;
+import com.gargoylesoftware.htmlunit.*;
 
-// import java.io.IOException;
-// import java.net.HttpURLConnection;
-// import java.net.URL;
+import java.io.IOException;
+import java.util.ArrayList;
 
-// import org.json.JSONArray;
-// import org.json.JSONObject;
+import org.json.JSONObject;
 
-// public class TestGlpiApi {
+public class TestGlpiApi {
 
-//     String urlApi = "http://localhost/glpi_10_0_6/apirest.php/";
-//     String appToken = "Sqj5ZWtdgwEtPOq81qYU6JmIiPpIb3WwhhgVIasK";
-//     String userToken = "WBVngFYj3IqozWlkXYrgmygoelopRG9ZCScuvzGP";
-//     int id = 185;
-//     int demId = 7; // MANAGER_RH
-//     int ass1Id = 9; // RESP_TECHNIQUE
-//     int ass2Id = 10; // ADMIN_SYS
-//     int validId = 8; // MANAGER_EQUIPE
-//     String sessionToken = "s1d3q9e5kl5sg1t8a9ejdp120m";
-//     int ticketId;
+    private static GlpiApiCall glpiApiCall;
+    private static String urlApi;
+    private static String appToken;
+    private static String userToken;
+    private static String sessionToken;
+    private static JSONObject ticketRef;
+    private static int ticketRefId;
+    private static int ticketsNbBefore;
+    private final static int demId = 7; // MANAGER_RH
 
-//     @Before
+    @BeforeClass
+    public static void setUpClass() throws IOException {
+        GlpiApiCall glpiApiCall = new GlpiApiCall();
+        urlApi = "http://localhost/glpi_10_0_6/apirest.php/";
+        appToken = "Sqj5ZWtdgwEtPOq81qYU6JmIiPpIb3WwhhgVIasK";
+        userToken = "WBVngFYj3IqozWlkXYrgmygoelopRG9ZCScuvzGP"; // MANAGER_RH
+        // Obtention du Token de Session
+        sessionToken = glpiApiCall.getSessionToken(urlApi, appToken, userToken);
+        // Initialisation de la liste des tickets avant création
+        ArrayList ticketsListBefore = glpiApiCall.getTicketsList(urlApi, appToken, userToken, sessionToken);
+        ticketsNbBefore = ticketsListBefore.size();
+        // Création d'un ticket de référence
+        ticketRef = glpiApiCall.getJsonObject(glpiApiCall.createTicket(urlApi, appToken, userToken, sessionToken, demId));
+        ticketRefId = ticketRef.getInt("id");
+    }
 
+    @Before
+    public void setUp() {
+        glpiApiCall = new GlpiApiCall();
+    }
 
-//     @BeforeClass
-//     public static void initialisation() {
+    @AfterClass
+    public static void tearDownClass() throws IOException {
+        GlpiApiCall glpiApiCall = new GlpiApiCall();
+        // Suppression du ticket de référence
+        glpiApiCall.removeTicket(urlApi, appToken, userToken, sessionToken, ticketRefId);
+    }
 
-//     }
+    @Test
+    public void testGetSessionToken() {
+        // Vérification que le sessionToken existe
+        assert sessionToken.length() > 0;
+    }
 
-//     @AfterClass
+    @Test
+    public void testGetTicketsList() {
+        // Vérification de l'alimentation de la liste des tickets
+        assertTrue("La liste de tickets est vide", ticketsNbBefore!=0);
+    }
 
-//     @After
+    @Test
+    public void testCreateTicket() throws IOException {
+        ArrayList ticketsListAfter = glpiApiCall.getTicketsList(urlApi, appToken, userToken, sessionToken);
+        int ticketsNbAfter = ticketsListAfter.size();
+        // Vérification du message d'ajout du ticket dans le JSONObject (response)
+        assertTrue("Le ticket n'a pas été ajouté", ticketRef.getString("message").contains("Élément ajouté"));
+        // Vérification de la création de l'id du ticket dans le JSONObject (response)
+        assertTrue("Le ticket n'a pas été créé", ticketRef.has("id"));
+        // Vérification que la liste des tickets comporte un élément supplémentaire
+        assertEquals("La liste des tickets ne contient pas un élément supplémtaire", ticketsNbBefore+1, ticketsNbAfter);
+        // Vérification de la présence de l'id du ticket dans la liste des tickets
+        assertTrue("Le ticket de référence n'est pas dans la liste des tickets", ticketsListAfter.contains(ticketRefId));
 
-//     @Test
-//     public void testGetSessionToken() throws IOException {
-//         URL url = new URL(urlApi + "initSession");
-//         GlpiApiCall glpiApiCall = new GlpiApiCall();
-//         WebResponse response = glpiApiCall.sendHttpRequest(url, HttpMethod.GET, appToken,
-//                 userToken, null, null, null, null, "application/json",
-//                 HttpURLConnection.HTTP_OK, null);
-//         JSONObject jsonObject = glpiApiCall.getJsonObject(response);
-//         sessionToken = jsonObject.getString("session_token");
-//         System.out.println(sessionToken);
-//         // Appel init session et vérification que le json contient un token
-//         assertTrue("Le session token existe",jsonObject.has("session_token"));
-//     }
+        //assertEquals();
+    }
 
-//     @Test
-//     public void testGetTicketsList() throws IOException {
-//         URL url = new URL(urlApi + "ticket");
-//         GlpiApiCall glpiApiCall = new GlpiApiCall();
-//         WebResponse response = glpiApiCall.sendHttpRequest(url, HttpMethod.GET, appToken,
-//                 userToken, sessionToken, null, null, null, "application/json",
-//                 HttpURLConnection.HTTP_OK, null);
-//         JSONArray ticketsArray = glpiApiCall.getJsonArray(response);
-//         int ticketsNb = ticketsArray.length();
-//         JSONObject lastTicket = ticketsArray.getJSONObject(ticketsNb-1);
-//         int lastTicketId = lastTicket.getInt("id");
-//         System.out.println(lastTicketId);
-//         assertEquals(200, response.getStatusCode());
-//     }
-
-//     @Test
-//     public void testCreateTicket() throws IOException {
-//         URL url = new URL("http://localhost/glpi_10_0_6/apirest.php/ticket");
-//         GlpiApiCall glpiApiCall = new GlpiApiCall();
-//         WebResponse response = glpiApiCall.sendHttpRequest(url, HttpMethod.POST, "Sqj5ZWtdgwEtPOq81qYU6JmIiPpIb3WwhhgVIasK",
-//                 "WBVngFYj3IqozWlkXYrgmygoelopRG9ZCScuvzGP", "atffg3pvso75croarqkd6fgp7t",
-//                 "{" +
-//                         "\"input\": {" +
-//                         "\"name\": \"Creation ticket Code\"," +
-//                         "\"content\":\"POST Ticket\"," +
-//                         "\"type\":2," +
-//                         "\"users_id_recipient\":8}" +
-//                         "}",
-//                 "application/json", null, null, HttpURLConnection.HTTP_CREATED, null
-//         );
-//         JSONObject ticket = glpiApiCall.getJsonObject(response);
-//         assertTrue(ticket.has("id"));
-//         assertTrue(ticket.getString("message").contains("Élément ajouté"));
-//         ticketId = ticket.getInt("id");
-//     }
-
-//     @Test
-//     public void testGetTicket() throws IOException {
-//         URL url = new URL("http://localhost/glpi_10_0_6/apirest.php/ticket/186");
-//         GlpiApiCall glpiApiCall = new GlpiApiCall();
-//         WebResponse response = glpiApiCall.sendHttpRequest(url, HttpMethod.GET, "Sqj5ZWtdgwEtPOq81qYU6JmIiPpIb3WwhhgVIasK",
-//                 "WBVngFYj3IqozWlkXYrgmygoelopRG9ZCScuvzGP", "atffg3pvso75croarqkd6fgp7t", null, null, null, "application/json",
-//                 HttpURLConnection.HTTP_OK, null);
-
-//         JSONObject ticket = glpiApiCall.getJsonObject(response);
-//         int ticketId = ticket.getInt("id");
-//         String ticketName = ticket.getString("name");
-//         int ticketStatus = ticket.getInt("status");
-//         String ticketContent = ticket.getString("content");
-//         int ticketType = ticket.getInt("type");
-//         int ticketValid = ticket.getInt("global_validation");
-//         assertEquals(186, ticketId);
-//         assertEquals("Creation ticket Code", ticketName);
-//         assertEquals(1, ticketStatus);
-//         assertEquals("POST Ticket", ticketContent);
-//         assertEquals(2, ticketType);
-//         assertEquals(1, ticketValid);
-//     }
-
-//     @Test
-//     public void testRemoveTicket() throws IOException {
-//         System.out.println(ticketId);
-//         URL url = new URL(urlApi + "Ticket/" + ticketId + "?force_purge=true");
-//         GlpiApiCall glpiApiCall = new GlpiApiCall();
-//         WebResponse response = glpiApiCall.sendHttpRequest(url, HttpMethod.DELETE, "Sqj5ZWtdgwEtPOq81qYU6JmIiPpIb3WwhhgVIasK",
-//                 "WBVngFYj3IqozWlkXYrgmygoelopRG9ZCScuvzGP", "atffg3pvso75croarqkd6fgp7t", null, null, null, "application/json",
-//                 HttpURLConnection.HTTP_OK, null);
-//     }
-// }
+    @Test
+    public void testGetTicket() throws IOException {
+        WebResponse response = glpiApiCall.getTicket(urlApi, appToken, userToken, sessionToken, ticketRefId);
+        JSONObject ticket = glpiApiCall.getJsonObject(response);
+        assertEquals(ticketRefId, ticket.getInt("id"));
+        assertEquals("Demande droits et materiel pour Jack MARTIN",ticket.getString("name"));
+    }
+}

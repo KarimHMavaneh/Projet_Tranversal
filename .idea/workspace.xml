@@ -5,9 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b871b30-5b7c-4290-a977-32505fd996f3" name="Changes" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/src/test/java/TestGlpiAll.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/ui/helpers/TestElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ui/helpers/TestElement.java" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/../GlpiApiJavaCallHtmlUnitMvn/src/test/java/TestsGlpiSuite.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/TestsGlpiSuite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GlpiApiJavaCallHtmlUnitMvn/src/main/java/api/GlpiApiCall.java" beforeDir="false" afterPath="$PROJECT_DIR$/../GlpiApiJavaCallHtmlUnitMvn/src/main/java/api/GlpiApiCall.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GlpiApiJavaCallHtmlUnitMvn/src/test/java/api/testGlpiApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/../GlpiApiJavaCallHtmlUnitMvn/src/test/java/api/TestGlpiApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/GlpiApiCall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/GlpiApiCall.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/api/TestGlpiApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/api/TestGlpiApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/api/GlpiApiCall.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/api/GlpiApiCall.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/ui/TestGlpiUi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/ui/TestGlpiUi.class" afterDir="false" />
+>>>>>>> a68050219a43f21d141eeea53a4f4b70b01369f4
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +44,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -46,12 +59,37 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+=======
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test/java" />
+  </component>
+>>>>>>> a68050219a43f21d141eeea53a4f4b70b01369f4
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\TL-23\junit\Projet_Tranversal_ApiTest\src\test\java" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TestGlpiUi.testCreateTicket">
+  <component name="RunManager" selected="JUnit.TestGlpiUi">
+    <configuration name="TestGlpiUi" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Projet_Tranversal_ApiTest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ui" />
+      <option name="MAIN_CLASS_NAME" value="ui.TestGlpiUi" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TestGlpiUi.testCreateTicket" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Projet_Tranversal_ApiTest" />
       <extension name="coverage">
@@ -102,6 +140,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestGlpiUi" />
         <item itemvalue="JUnit.TestGlpiUi.testCreateTicket" />
         <item itemvalue="JUnit.TestGlpiUi.testRefuseTicket" />
         <item itemvalue="JUnit.TestGlpiUi.testValidateTicket" />
@@ -127,5 +166,16 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
