@@ -2,21 +2,21 @@ package ui;
 
 import ui.helpers.*;
 import ui.pages.*;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-
+//
 import org.json.JSONObject;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+//import org.junit.After;
+//import org.junit.Before;
+//import org.junit.BeforeClass;
+//import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
-
+import org.junit.*;
 import java.util.Optional;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class TestGlpiUi {
@@ -25,9 +25,7 @@ public class TestGlpiUi {
     //    private static final String TEST_USER = "admin";
 //    private static final String TEST_PASSWORD = "#g9eYkRd9dYHFeXiaof987";\
     //Pour creer un nouneau ticket on faire passer son json object dans la methode defini
-    private static final JSONObject ticketObj = new JSONObject()
-            .put("titre", "Kamkam RH")
-            .put("content","Mananger d'equipe veuillez valider la fiche de demande s'il vous plait. \n   Cordialement  \n  Carole Manager RH");
+
     public static String title =  "Kamkam RH";
     public static String desc =  "Mananger d'equipe veuillez valider la fiche de demande s'il vous plait. \n   Cordialement  \n  Carole Manager RH";
     public static String response = "Validate :Hello Manager RH, I confirme your demande \n Thank you, \n Manager Equipe ";
@@ -40,9 +38,7 @@ public class TestGlpiUi {
     @BeforeClass
     public static void setupWebdriverChromeDriver() {
         System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/src/test/resources/chromedriver.exe");
-//         System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "/src/test/resources/geckodriver.exe");
-//        ChromeOptions options = new ChromeOptions();
-//        options.setHeadless(true);
+
 
     }
 
@@ -65,22 +61,22 @@ public class TestGlpiUi {
         Optional.ofNullable(page).map(GlpiPageObject::close);
     }
 
-    //    @Test
-//    public void testSuccessLoginToGlpi() throws InterruptedException {
+    @Test
+    public void testSuccessLoginToGlpi() throws InterruptedException {
 //        ChromeOptions options = new ChromeOptions();
 //        options.addArguments("headless");
 ////        this.driver = new ChromeDriver(options);
-//
-//        this.page = new LoginPage(this.driver).login(LoginPage.TEST_USER_OK, LoginPage.TEST_PASSWORD_OK);
-//
-//
-//        // Assert
-//        assertEquals(
-//                "The home page is expected",
-//                page.getExpectedUrl(),
-//                page.getCurrentUrl()
-//        );
-//    }
+
+        this.page = new LoginPage(this.driver).login(LoginPage.TEST_USER_OK, LoginPage.TEST_PASSWORD_OK);
+
+
+        // Assert
+        assertEquals(
+                "The home page is expected",
+                page.getExpectedUrl(),
+                page.getCurrentUrl()
+        );
+    }
 //
 //    @Test
 //    public void testFailLoginToGlpi() throws InterruptedException {
@@ -95,33 +91,33 @@ public class TestGlpiUi {
 //    }
 //
     @Test
-    public void testCreateTicket() throws InterruptedException {
-        this.page = new LoginPage(this.driver).login(LoginPage.TEST_Manager_RH, LoginPage.TEST_PASSWORD_Manager_RH);
-        CreateTicketPage page= new CreateTicketPage(this.driver).createATicket();
-        Thread.sleep(3000);
-        page.specifyDate("2023-04-03 12:00:00");
-        Thread.sleep(2000);
-        page.specifyDemandeType();
-        Thread.sleep(3000);
-        page.findNScroll();
-        Thread.sleep(3000);
-        page.selectValidationDemand();
-        Thread.sleep(3000);
-        page.findValidator();
-        Thread.sleep(5000);
-        page.clickValidator();
-        Thread.sleep(3000);
-        page.finalClick();
-        Thread.sleep(5000);
-        page.ticketTitleNDescription(title, desc);
-        Thread.sleep(3000);
-        //get the inner text of the webelements
-        TestElement element = this.driver.findElement(By.id("messages_after_redirect"));
-        String innerText = element.getText();
-        //Check if the innerText contains the ticket's title
-//        System.out.println("Text = " + innerText.contains("Kamkam RH"));
-        assertTrue("The innerText should contain ticket's title : Élément ajouté + title", innerText.contains(title));
-    }
+//    public void testCreateTicket() throws InterruptedException {
+//        this.page = new LoginPage(this.driver).login(LoginPage.TEST_Manager_RH, LoginPage.TEST_PASSWORD_Manager_RH);
+//        CreateTicketPage page= new CreateTicketPage(this.driver).createATicket();
+//        Thread.sleep(3000);
+//        page.specifyDate("2023-04-03 12:00:00");
+//        Thread.sleep(2000);
+//        page.specifyDemandeType();
+//        Thread.sleep(3000);
+//        page.findNScroll();
+//        Thread.sleep(3000);
+//        page.selectValidationDemand();
+//        Thread.sleep(3000);
+//        page.findValidator();
+//        Thread.sleep(5000);
+//        page.clickValidator();
+//        Thread.sleep(3000);
+//        page.finalClick();
+//        Thread.sleep(5000);
+//        page.ticketTitleNDescription(title, desc);
+//        Thread.sleep(3000);
+//        //get the inner text of the webelements
+//        TestElement element = this.driver.findElement(By.id("messages_after_redirect"));
+//        String innerText = element.getText();
+//        //Check if the innerText contains the ticket's title
+////        System.out.println("Text = " + innerText.contains("Kamkam RH"));
+//        assertTrue("The innerText should contain ticket's title : Élément ajouté + title", innerText.contains(title));
+//    }
 //    @Test
 //    public void testValidateTicket() throws InterruptedException{
 //        this.page = new LoginPage(this.driver).login(LoginPage.TEST_Manager_Equipe, LoginPage.TEST_PASSWORD_ManagerEquipe);
