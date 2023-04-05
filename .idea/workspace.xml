@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3b871b30-5b7c-4290-a977-32505fd996f3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/test/java/ui/TestGlpiUi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ui/TestGlpiUi.java" afterDir="false" />
-    </list>
+    <list default="true" id="3b871b30-5b7c-4290-a977-32505fd996f3" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -157,7 +155,7 @@
       <workItem from="1680681778201" duration="434000" />
       <workItem from="1680682231376" duration="4105000" />
       <workItem from="1680692759943" duration="2034000" />
-      <workItem from="1680696435727" duration="2199000" />
+      <workItem from="1680696435727" duration="2816000" />
     </task>
     <servers />
   </component>
