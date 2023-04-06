@@ -4,16 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
     <list default="true" id="3b871b30-5b7c-4290-a977-32505fd996f3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/ui/TestGlpiUi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ui/TestGlpiUi.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/ui/TestGlpiUi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/ui/TestGlpiUi.class" afterDir="false" />
     </list>
-=======
-    <list default="true" id="3b871b30-5b7c-4290-a977-32505fd996f3" name="Changes" comment="" />
->>>>>>> 84167c5064fb8e9b8f7a4d44378ac299e8f8d4c2
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,7 +57,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TestGlpiUi.testCreateTicket">
+  <component name="RunManager">
     <configuration name="TestGlpiUi.testCreateTicket" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Projet_Tranversal_ApiTest" />
       <extension name="coverage">
@@ -168,14 +164,11 @@
       <workItem from="1680681778201" duration="434000" />
       <workItem from="1680682231376" duration="4105000" />
       <workItem from="1680692759943" duration="2034000" />
-<<<<<<< HEAD
       <workItem from="1680696435727" duration="2199000" />
       <workItem from="1680703155096" duration="3698000" />
       <workItem from="1680713641489" duration="3920000" />
       <workItem from="1680717606027" duration="1500000" />
-=======
       <workItem from="1680696435727" duration="2816000" />
->>>>>>> 84167c5064fb8e9b8f7a4d44378ac299e8f8d4c2
     </task>
     <servers />
   </component>
