@@ -77,72 +77,72 @@ public class TestGlpiUi {
 //        );
 //    }
 
+//    @Test
+//    public void testCreateTicket() throws InterruptedException {
+//        this.page = new LoginPage(this.driver).login(LoginPage.TEST_Manager_RH, LoginPage.TEST_PASSWORD_Manager_RH);
+//        CreateTicketPage page= new CreateTicketPage(this.driver).createATicket();
+//        Thread.sleep(3000);
+//        page.specifyDate("2023-04-03 12:00:00");
+//        Thread.sleep(2000);
+//        page.specifyDemandeType();
+//        Thread.sleep(3000);
+//        page.findNScroll();
+//        Thread.sleep(3000);
+//        page.selectValidationDemand();
+//        Thread.sleep(3000);
+//        page.findValidator();
+//        Thread.sleep(5000);
+//        page.clickValidator();
+//        Thread.sleep(3000);
+//        page.finalClick();
+//        Thread.sleep(5000);
+//        page.ticketTitleNDescription(title, desc);
+//        Thread.sleep(3000);
+//        //get the inner text of the webelements
+//        TestElement element = this.driver.findElement(By.id("messages_after_redirect"));
+//        String innerText = element.getText();
+//        //Check if the innerText contains the ticket's title
+////        System.out.println("Text = " + innerText.contains("Kamkam RH"));
+//        assertTrue("The innerText should contain ticket's title : Élément ajouté + title", innerText.contains(title));
+//    }
     @Test
-    public void testCreateTicket() throws InterruptedException {
-        this.page = new LoginPage(this.driver).login(LoginPage.TEST_Manager_RH, LoginPage.TEST_PASSWORD_Manager_RH);
-        CreateTicketPage page= new CreateTicketPage(this.driver).createATicket();
-        Thread.sleep(3000);
-        page.specifyDate("2023-04-03 12:00:00");
+    public void testValidateTicket() throws InterruptedException{
+        this.page = new LoginPage(this.driver).login(LoginPage.TEST_Manager_Equipe, LoginPage.TEST_PASSWORD_ManagerEquipe);
+        TicketsPage page= new TicketsPage(this.driver).ticketsListPage();
         Thread.sleep(2000);
-        page.specifyDemandeType();
-        Thread.sleep(3000);
-        page.findNScroll();
-        Thread.sleep(3000);
-        page.selectValidationDemand();
-        Thread.sleep(3000);
-        page.findValidator();
+        page.selectTicket(223);
+        Thread.sleep(4000);
+        page.ticketResponse(response);
         Thread.sleep(5000);
-        page.clickValidator();
-        Thread.sleep(3000);
-        page.finalClick();
-        Thread.sleep(5000);
-        page.ticketTitleNDescription(title, desc);
-        Thread.sleep(3000);
-        //get the inner text of the webelements
-        TestElement element = this.driver.findElement(By.id("messages_after_redirect"));
-        String innerText = element.getText();
-        //Check if the innerText contains the ticket's title
-//        System.out.println("Text = " + innerText.contains("Kamkam RH"));
-        assertTrue("The innerText should contain ticket's title : Élément ajouté + title", innerText.contains(title));
+        page.approveIt();
+        Thread.sleep(4000);
+        TestElement ticketElement = this.driver.findElement(By.cssSelector("span.badge.user-select-auto.text-wrap.ms-1.d-none.d-md-block"));
+        String expectedMsg = ticketElement.getText();
+        System.out.println("confimration : " + expectedMsg);
+//        String expectedMsg = "Dernière mise à jour : À l'instant par MANAGER_EQUIPE";
+        //WE can not validate a ticket more than three timees
+        assertTrue("Derniere mise a jour", expectedMsg.contains("par MANAGER_EQUIPE"));
+
     }
-//    @Test
-//    public void testValidateTicket() throws InterruptedException{
-//        this.page = new LoginPage(this.driver).login(LoginPage.TEST_Manager_Equipe, LoginPage.TEST_PASSWORD_ManagerEquipe);
-//        TicketsPage page= new TicketsPage(this.driver).ticketsListPage();
-//        Thread.sleep(2000);
-//        page.selectTicket(223);
-//        Thread.sleep(4000);
-//        page.ticketResponse(response);
-//        Thread.sleep(5000);
-//        page.approveIt();
-//        Thread.sleep(4000);
-//        TestElement ticketElement = this.driver.findElement(By.cssSelector("span.badge.user-select-auto.text-wrap.ms-1.d-none.d-md-block"));
-//        String expectedMsg = ticketElement.getText();
-//        System.out.println("confimration : " + expectedMsg);
-////        String expectedMsg = "Dernière mise à jour : À l'instant par MANAGER_EQUIPE";
-//        //WE can not validate a ticket more than three timees
-//        assertTrue("Derniere mise a jour", expectedMsg.contains("par MANAGER_EQUIPE"));
-//
-//    }
-//    @Test
-//    public void testRefuseTicket() throws InterruptedException{
-//        this.page = new LoginPage(this.driver).login(LoginPage.TEST_Manager_Equipe, LoginPage.TEST_PASSWORD_ManagerEquipe);
-//        TicketsPage page= new TicketsPage(this.driver).ticketsListPage();
-//        Thread.sleep(2000);
-//        page.selectTicket(225);
-//        Thread.sleep(4000);
-//        page.ticketResponse(response);
-//        Thread.sleep(5000);
-//        page.refuseIt();
-//        Thread.sleep(4000);
-//        TestElement ticketElement = this.driver.findElement(By.xpath("/html/body/div[2]/div/div/main/div/div/div[2]/div[2]/div/div[1]/div/div[1]/div[1]/div/div[10]/div/div[3]/div/div/div[2]"));
-//        String expectedMsg = ticketElement.getText();
-//        System.out.println("confimration : " + expectedMsg);
-////        String expectedMsg = "Dernière mise à jour : À l'instant par MANAGER_EQUIPE";
-//        //WE can not validate a ticket more than three timees
-//        assertTrue("Réponse à une demande de validation: Refusee", expectedMsg.contains("Refusée"));
-//
-//    }
+    @Test
+    public void testRefuseTicket() throws InterruptedException{
+        this.page = new LoginPage(this.driver).login(LoginPage.TEST_Manager_Equipe, LoginPage.TEST_PASSWORD_ManagerEquipe);
+        TicketsPage page= new TicketsPage(this.driver).ticketsListPage();
+        Thread.sleep(2000);
+        page.selectTicket(225);
+        Thread.sleep(4000);
+        page.ticketResponse(response);
+        Thread.sleep(5000);
+        page.refuseIt();
+        Thread.sleep(4000);
+        TestElement ticketElement = this.driver.findElement(By.xpath("/html/body/div[2]/div/div/main/div/div/div[2]/div[2]/div/div[1]/div/div[1]/div[1]/div/div[10]/div/div[3]/div/div/div[2]"));
+        String expectedMsg = ticketElement.getText();
+        System.out.println("confimration : " + expectedMsg);
+//        String expectedMsg = "Dernière mise à jour : À l'instant par MANAGER_EQUIPE";
+        //WE can not validate a ticket more than three timees
+        assertTrue("Réponse à une demande de validation: Refusee", expectedMsg.contains("Refusée"));
+
+    }
 
 
 //    @Test
